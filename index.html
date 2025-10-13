@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Konversi Suhu
+  </title>
+</head>
+<body>
+
+  <script>
+let suhu = prompt("Silahkan pilih suhu yang mau kamu conversi\n"+
+  "1. Celcius\n" +
+  "2. Fahrenheit\n"+
+  "3. Kelvin"
+);
+switch(suhu){
+  case "1": let c1 = prompt("Masukkan nilai dari celcius");
+  let cK= c1 + 273.15;
+  let cF=(c1 * 9/5) + 32;
+  document.write("Nilai dari celcius ke fahrenheit adalah: " + cF + " Fahrenheit<br>" +
+    "Nilai dari celcius ke kelvin adalah: " + cK + " Kelvin"
+  ); break;
+  case "2": let f1 = prompt("Masukkan nilai dari fahrenheit");
+  let fK= (f1 - 32) * 5/9 + 273.15;
+  let fC=(f1 - 32) * 5/9;
+  document.write("Nilai dari fahrenheit ke kelvin adalah: " + fK + " Kelvin<br>" +
+    "Nilai dari fahrenheit ke celcius adalah: " + fC + " Celcius"
+  );break;
+  case "3": let k1 = prompt("Masukkan nilai dari kelvin");
+  let kC= k1 - 273.15;
+  let kF= kC * 9/5 + 32;
+  document.write("Nilai dari kelvin ke celcius adalah: " + kC + " celcius<br>" +
+    "Nilai dari kelvin ke fahrenheit adalah: " + kF + " fahrenheit"
+  );
+} 
+  </script>
+</body>
+</html>
