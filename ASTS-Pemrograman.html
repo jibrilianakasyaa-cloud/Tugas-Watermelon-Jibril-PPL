@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Peserta</title>
+</head>
+<body>
+  <table id="tabelData" border="1">
+    <tr>
+      <th>No</th>
+      <th>Nama</th>
+      <th>Umur</th>
+      <th>Kewarganegaraan</th>
+      <th>Status</th>
+      <th>Izin membuat KTP</th>
+    </tr>
+  </table>
+
+  <script>
+    let jumlahPeserta = parseInt(prompt("Masukkan jumlah peserta:"));
+    let dataPeserta = [];
+
+    for (let i = 0; i < jumlahPeserta; i++) {
+      let nama = prompt("Masukkan Nama Lengkap peserta ke-" + (i + 1));
+      let umur = parseInt(prompt("Masukkan Umur " + nama));
+      let kewarga = prompt(`Apakah ${nama} Warga Indonesia?\n1. Ya\n2. Bukan`);
+      let status = prompt(`Apakah ${nama} sudah menikah?\n1. Belum\n2. Sudah`);
+
+      let izinKtp = "Tidak Boleh";
+      if ((umur > 17 && kewarga == "1") || (umur >= 15 && status == "2" && kewarga=="1")) {
+        izinKtp = "Boleh";
+      }
+
+      dataPeserta.push({
+        nama,
+        umur,
+        kewarga: kewarga == "1" ? "Ya" : "Bukan",
+        status: status == "1" ? "Belum Menikah" : "Sudah Menikah",
+        izinKtp
+      });
+    }
+
+    let tabel = document.getElementById("tabelData");
+
+    dataPeserta.forEach((peserta, index) => {
+      let row = tabel.insertRow();
+      row.insertCell(0).innerHTML = index + 1;
+      row.insertCell(1).innerHTML = peserta.nama;
+      row.insertCell(2).innerHTML = peserta.umur;
+      row.insertCell(3).innerHTML = peserta.kewarga;
+      row.insertCell(4).innerHTML = peserta.status;
+      row.insertCell(5).innerHTML = peserta.izinKtp;
+    });
+  </script>
+</body>
+</html>
